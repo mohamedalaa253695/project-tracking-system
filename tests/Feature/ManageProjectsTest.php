@@ -5,6 +5,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
+use Illuminate\Support\Str;
+
+
 class ManageProjectsTest extends TestCase
 {
     use WithFaker,RefreshDatabase;
@@ -35,7 +38,7 @@ class ManageProjectsTest extends TestCase
     public function test_a_user_can_create_a_project()
     {
         $this->withoutExceptionHandling();
-        $this->actingAs(factory('App\User')->create());
+        $this->signIn();
 
         $this->get('/project/create')->assertStatus(200);
 
@@ -53,7 +56,7 @@ class ManageProjectsTest extends TestCase
 
     public function test_a_project_requires_a_title()
     {
-        $this->actingAs(factory('App\User')->create());
+        $this->signIn();
 
         $attributes = factory('App\Project')->raw(['title' => '']);
 
@@ -62,22 +65,25 @@ class ManageProjectsTest extends TestCase
 
     public function test_a_project_requires_a_description()
     {
-        $this->actingAs(factory('App\User')->create());
+        
+        $this->signIn();
+
         $attributes = factory('App\Project')->raw(['description' => '']);
         $this->post('/project/store', $attributes)->assertSessionHasErrors('description');
     }
 
     public function test_a_user_can_view_thier_project()
     {
-        $this->actingAs(factory('App\User')->create());
+        $this->withoutExceptionHandling();
+        $this->signIn();
         $project = factory('App\Project')->create(['owner_id' => auth()->id()]);
 
-        $this->get($project->path())->assertSee($project->title)->assertSee($project->description);
+        $this->get($project->path())->assertSee($project->title)->assertSee(Str::limit($project->description,100));
     }
 
     public function test_an_unthenticated_user_cannot_view_the_project_of_others()
     {
-        $this->actingAs(factory('App\User')->create());
+        $this->signIn();
 
         $project = factory('App\Project')->create();
 

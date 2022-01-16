@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\Task;
 use Illuminate\Http\Request;
 
-class ProjectController extends Controller
+class ProjectTasksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +16,6 @@ class ProjectController extends Controller
     public function index()
     {
         //
-        $projects = auth()->user()->projects;
-        // dd($projects);
-        return view('projects.index', [
-            'projects' => $projects
-        ]);
     }
 
     /**
@@ -28,7 +25,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        //
     }
 
     /**
@@ -37,44 +34,41 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Project $project)
     {
-        $attributes = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+        request()->validate([
+            'body'=>'required',
         ]);
 
-        auth()->user()->projects()->create($attributes);
+        if(auth()->user()->isNot($project->owner)){
+            abort(403);
+        }
 
-        return redirect('/projects')->with('message', 'project created successfully');
+        $project->addTask(request('body'));
+        
+
+        return redirect($project->path());
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show(Task $task)
     {
-        if (auth()->user()->isNot($project->owner)) {
-            abort(403);
-        }
-
-        // return view('project.show', ['project' => $project]);
-        // $tasks = $project->tasks();
-
-      
-        return view('projects.show', ['project' =>$project]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Task $task)
     {
         //
     }
@@ -83,10 +77,10 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Task $task)
     {
         //
     }
@@ -94,10 +88,10 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Task $task)
     {
         //
     }
