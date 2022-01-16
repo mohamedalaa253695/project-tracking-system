@@ -9,13 +9,20 @@ class Task extends Model
     //
 
     protected $fillable = [
-        'body'
+        'body',
+        'completed'
     ];
 
     protected $guarded = [];
 
     public function project(){
         return $this->belongsTo(Project::class);
+    }
+
+
+    public function path()
+    {
+        return "/project/{$this->project->id}/tasks/{$this->id}";
     }
 
 

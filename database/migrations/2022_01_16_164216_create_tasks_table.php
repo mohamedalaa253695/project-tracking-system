@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableTasks extends Migration
+class CreateTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,6 +17,7 @@ class CreateTableTasks extends Migration
             $table->id();
             $table->unsignedInteger('project_id');
             $table->longText('body');
+            $table->boolean('completed')->default(false);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateTableTasks extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('Task');
     }
 }

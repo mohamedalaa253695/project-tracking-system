@@ -10,8 +10,7 @@ $factory->define(Project::class, function (Faker $faker) {
 
         'title' => $faker->sentence(),
         'description' => $faker->paragraph(),
-        'owner_id' => function () {
-            return factory(App\User::class)->create()->id;
-        }
+        'owner_id' => factory(App\User::class)
+
     ];
 });

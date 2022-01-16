@@ -37,16 +37,17 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Project $project)
     {
-        $attributes = $request->validate([
+        $attributes = request()->validate([
             'title' => 'required',
             'description' => 'required',
         ]);
 
-        auth()->user()->projects()->create($attributes);
+        $project = auth()->user()->projects()->create($attributes);
 
-        return redirect('/projects')->with('message', 'project created successfully');
+
+        return redirect($project->path());
     }
 
     /**
