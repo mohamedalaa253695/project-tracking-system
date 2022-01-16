@@ -13,6 +13,8 @@ class Task extends Model
         'completed'
     ];
 
+    protected $touches = ['project'];
+
     protected $guarded = [];
 
     public function project(){
