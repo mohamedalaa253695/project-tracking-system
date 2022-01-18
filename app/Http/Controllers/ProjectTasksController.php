@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Project;
@@ -37,16 +36,14 @@ class ProjectTasksController extends Controller
     public function store(Project $project)
     {
         request()->validate([
-            'body'=>'required',
+            'body' => 'required',
         ]);
 
-       $this->authorize('update' , $project);
+        $this->authorize('update', $project);
 
         $project->addTask(request('body'));
-        
 
         return redirect($project->path());
-
     }
 
     /**
@@ -79,20 +76,25 @@ class ProjectTasksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Project $project, Task $task)
-    {if (auth()->user()->isNot($project->owner)) {
-        abort(403);
-    }
+    {
+        if (auth()->user()->isNot($project->owner)) {
+            abort(403);
+        }
 
-    request()->validate(['body' => 'required']);
+        request()->validate(['body' => 'required']);
 
-    $task->update([
-        'body' => request('body'),
-        'completed' => request()->has('completed')
-    ]);
+        $task->update(['body' => request('body')]);
 
-    return redirect($project->path());
+        if (request()->has('completed')) {
+            $task->complete();
+        }
 
-        
+        // $task->update([
+        //     'body' => request('body'),
+        //     'completed' => request()->has('completed')
+        // ]);
+
+        return redirect($project->path());
     }
 
     /**

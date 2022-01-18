@@ -7,8 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Task::class, function (Faker $faker) {
     return [
-        'body'=> $faker->sentence(),
-        'completed'=>true,
-        'project_id'=> factory(\App\Project::class)
+        'body' => $faker->sentence(),
+        'completed' => false,
+        'project_id' => factory(\App\Project::class)
     ];
 });

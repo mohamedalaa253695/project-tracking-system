@@ -1,8 +1,9 @@
 <?php
-
 namespace App\Providers;
 
+use App\Observers\ProjectObserver;
 use Illuminate\Support\ServiceProvider;
+use App\Project;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,5 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+
+        Project::observe(ProjectObserver::class);
     }
 }
