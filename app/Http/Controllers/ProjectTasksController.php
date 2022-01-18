@@ -40,9 +40,7 @@ class ProjectTasksController extends Controller
             'body'=>'required',
         ]);
 
-        if(auth()->user()->isNot($project->owner)){
-            abort(403);
-        }
+       $this->authorize('update' , $project);
 
         $project->addTask(request('body'));
         

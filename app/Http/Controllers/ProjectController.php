@@ -42,6 +42,7 @@ class ProjectController extends Controller
         $attributes = request()->validate([
             'title' => 'required',
             'description' => 'required',
+            'notes' => 'min:3'
         ]);
 
         $project = auth()->user()->projects()->create($attributes);
@@ -58,12 +59,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        if (auth()->user()->isNot($project->owner)) {
-            abort(403);
-        }
-
-        // return view('project.show', ['project' => $project]);
-        // $tasks = $project->tasks();
+        $this->authorize('update' ,$project);
 
       
         return view('projects.show', ['project' =>$project]);
@@ -87,9 +83,11 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Project $project)
     {
-        //
+        $this->authorize('update' ,$project);
+        $project->update(request(['notes']));
+        return redirect($project->path());
     }
 
     /**

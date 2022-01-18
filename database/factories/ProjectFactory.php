@@ -9,8 +9,9 @@ $factory->define(Project::class, function (Faker $faker) {
     return [
 
         'title' => $faker->sentence(),
-        'description' => $faker->paragraph(),
-        'owner_id' => factory(App\User::class)
+        'description' => $faker->sentence(),
+        'owner_id' => factory(App\User::class),
+        'notes'=> $faker->sentence()
 
     ];
 });
