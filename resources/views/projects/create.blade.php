@@ -28,7 +28,7 @@
         </h1>
 
 
-        <form method="POST" action="/projects">
+        <form method="POST" action="/project/store">
             @include ('projects._form', [
             'project' => new App\Project,
             'buttonText' => 'Create Project'
