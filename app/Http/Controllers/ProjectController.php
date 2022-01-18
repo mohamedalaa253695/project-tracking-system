@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 
 use App\Project;
-use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -39,14 +38,7 @@ class ProjectController extends Controller
      */
     public function store(Project $project)
     {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'notes' => 'min:3'
-        ]);
-
-        $project = auth()->user()->projects()->create($attributes);
-
+        $project = auth()->user()->projects()->create($this->validateRequest());
 
         return redirect($project->path());
     }
@@ -59,10 +51,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        $this->authorize('update' ,$project);
+        $this->authorize('update', $project);
 
-      
-        return view('projects.show', ['project' =>$project]);
+        return view('projects.show', ['project' => $project]);
     }
 
     /**
@@ -71,9 +62,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
-        //
+        return view('projects.edit', compact('project'));
     }
 
     /**
@@ -85,8 +76,8 @@ class ProjectController extends Controller
      */
     public function update(Project $project)
     {
-        $this->authorize('update' ,$project);
-        $project->update(request(['notes']));
+        $this->authorize('update', $project);
+        $project->update($this->validateRequest());
         return redirect($project->path());
     }
 
@@ -99,5 +90,14 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    protected function validateRequest()
+    {
+        return request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'notes' => 'min:3'
+        ]);
     }
 }
