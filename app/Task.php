@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     //
+    use RecordsActivity;
 
     protected $fillable = [
         'body',
@@ -20,17 +21,7 @@ class Task extends Model
 
     protected $guarded = [];
 
-    // for future me that is for the sake of having fun but you should be consistent and us
-    //observer task as with the project observer
-
-    // protected static function boot()
-    // {
-    //     parent::boot();
-
-    //     static::created(function ($task) {
-    //         $task->project->recordActivity('created_task');
-    //     });
-    // }
+    protected static $recordableEvents = ['created', 'deleted'];
 
     public function complete()
     {
@@ -52,18 +43,5 @@ class Task extends Model
     public function path()
     {
         return "/project/{$this->project->id}/tasks/{$this->id}";
-    }
-
-    public function recordActivity($description)
-    {
-        $this->activity()->create([
-            'project_id' => $this->project_id,
-            'description' => $description
-        ]);
-    }
-
-    public function activity()
-    {
-        return $this->morphMany(Activity::class, 'subject')->latest();
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Arr;
 class Project extends Model
 {
     //
+    use RecordsActivity;
 
     protected $fillable = [
         'title',
@@ -16,8 +17,6 @@ class Project extends Model
     ];
 
     protected $guarded = [];
-
-    public $old = [];
 
     public function path()
     {
@@ -44,26 +43,26 @@ class Project extends Model
     //     $this->activity()->create(compact('description'));
     // }
 
-    public function activity()
-    {
-        return $this->hasMany(Activity::class)->latest();
-    }
+    // public function activity()
+    // {
+    //     return $this->hasMany(Activity::class)->latest();
+    // }
 
-    public function recordActivity($description)
-    {
-        $this->activity()->create([
-            'description' => $description,
-            'changes' => $this->activityChanges($description)
-        ]);
-    }
+    // public function recordActivity($description)
+    // {
+    //     $this->activity()->create([
+    //         'description' => $description,
+    //         'changes' => $this->activityChanges($description)
+    //     ]);
+    // }
 
-    protected function activityChanges($description)
-    {
-        if ($description == 'updated') {
-            return[
-                'before' => Arr::except(array_diff($this->old, $this->getAttributes()), 'updated_at'),
-                'after' => Arr::except($this->getChanges(), 'updated_at')
-            ];
-        }
-    }
+    // protected function activityChanges($description)
+    // {
+    //     if ($description == 'updated') {
+    //         return[
+    //             'before' => Arr::except(array_diff($this->old, $this->getAttributes()), 'updated_at'),
+    //             'after' => Arr::except($this->getChanges(), 'updated_at')
+    //         ];
+    //     }
+    // }
 }
