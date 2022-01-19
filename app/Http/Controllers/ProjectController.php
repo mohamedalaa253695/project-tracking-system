@@ -13,7 +13,8 @@ class ProjectController extends Controller
     public function index()
     {
         //
-        $projects = auth()->user()->projects;
+        // $projects = auth()->user()->projects;
+        $projects = auth()->user()->accessibleProjects();
         // dd($projects);
         return view('projects.index', [
             'projects' => $projects
