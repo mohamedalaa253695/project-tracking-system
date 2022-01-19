@@ -66,6 +66,7 @@
 
 
                 @include('projects.card')
+                @include('projects.activity.card')
 
             </div>
         </div>

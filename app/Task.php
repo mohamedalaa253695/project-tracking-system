@@ -23,19 +23,25 @@ class Task extends Model
     // for future me that is for the sake of having fun but you should be consistent and us
     //observer task as with the project observer
 
-    protected static function boot()
-    {
-        parent::boot();
+    // protected static function boot()
+    // {
+    //     parent::boot();
 
-        static::created(function ($task) {
-            $task->project->recordActivity('created_task');
-        });
-    }
+    //     static::created(function ($task) {
+    //         $task->project->recordActivity('created_task');
+    //     });
+    // }
 
     public function complete()
     {
         $this->update(['completed' => true]);
-        $this->project->recordActivity('completed_task');
+        $this->recordActivity('completed_task');
+    }
+
+    public function incomplete()
+    {
+        $this->update(['completed' => false]);
+        $this->recordActivity('incompleted-task');
     }
 
     public function project()
@@ -46,5 +52,18 @@ class Task extends Model
     public function path()
     {
         return "/project/{$this->project->id}/tasks/{$this->id}";
+    }
+
+    public function recordActivity($description)
+    {
+        $this->activity()->create([
+            'project_id' => $this->project_id,
+            'description' => $description
+        ]);
+    }
+
+    public function activity()
+    {
+        return $this->morphMany(Activity::class, 'subject')->latest();
     }
 }
