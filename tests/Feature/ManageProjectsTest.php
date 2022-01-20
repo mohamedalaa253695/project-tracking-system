@@ -53,6 +53,8 @@ class ManageProjectsTest extends TestCase
             'notes' => 'General notes here.'
         ];
 
+        // $attributes = app(ProjectFactory::class)->create()->raw(['owner_id']);
+
         $response = $this->post('/project/store', $attributes);
 
         $project = Project::where($attributes)->first();
@@ -141,10 +143,13 @@ class ManageProjectsTest extends TestCase
         $this->delete($project->path())
             ->assertRedirect('/login');
 
-        $this->signIn();
+        $user = $this->signIn();
 
-        $this->delete($project->path())
-             ->assertStatus(403);
+        $this->delete($project->path())->assertStatus(403);
+
+        $project->invite($user);
+
+        $this->actingAs($user)->delete($project->path())->assertStatus(403);
     }
 
     /** @test */
