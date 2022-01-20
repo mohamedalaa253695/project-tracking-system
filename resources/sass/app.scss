@@ -10,20 +10,37 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+// @import 'variables';
+
+@import 'themes/light';
+@import 'themes/dark';
 
 
 
-.button{
-    @apply py-2 px-5 bg-blue text-white no-underline rounded-lg text-sm  ;
 
-    box-shadow: 0 2px 7px 0 #b0eaff;
+@import 'components/button';
+@import 'components/card';
+
+
+
+body,
+button {
+    @apply text-default;
 }
 
-.card{
-    @apply bg-white  rounded-lg p-5 shadow-xl;
-}
+// .button{
+//     @apply py-2 px-5 bg-blue text-white no-underline rounded-lg text-sm  ;
 
+//     box-shadow: 0 2px 7px 0 #b0eaff;
+// }
+
+// .card{
+//     @apply bg-white  rounded-lg p-5 shadow-xl;
+// }
+
+section {
+    @apply px-8;
+}
 
 
 // Bootstrap

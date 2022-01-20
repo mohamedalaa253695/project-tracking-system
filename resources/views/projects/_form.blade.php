@@ -4,7 +4,7 @@
     <label class="label text-sm mb-2 block" for="title">Title</label>
 
     <div class="control">
-        <input type="text" class="input bg-transparent border border-grey-light rounded p-2 text-xs w-full" name="title"
+        <input type="text" class="input bg-transparent border border-muted-light rounded p-2 text-xs w-full" name="title"
             placeholder="My next awesome project" required value="{{ $project->title }}">
     </div>
 </div>
@@ -14,7 +14,7 @@
 
     <div class="control">
         <textarea name="description" rows="10"
-            class="textarea bg-transparent border border-grey-light rounded p-2 text-xs w-full"
+            class="textarea bg-transparent border border-muted-light rounded p-2 text-xs w-full"
             placeholder="I should start learning piano." required>{{ $project->description }}</textarea>
     </div>
 </div>
@@ -23,7 +23,7 @@
     <div class="control">
         <button type="submit" class="button is-link mr-2">{{ $buttonText }}</button>
 
-        <a href="{{ $project->path() }}">Cancel</a>
+        <a href="{{ $project->path() }}" class="text-default">Cancel</a>
     </div>
 </div>
 
