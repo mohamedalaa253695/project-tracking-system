@@ -32729,6 +32729,25 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.dropdown-toggle > button:focus {
+  outline: 0;
+}
+
+.dropdown-menu-link {
+  display: block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  line-height: 2;
+  color: var(--text-default-color);
+  text-decoration: none;
+}
+
+.dropdown-menu-link:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
 body, button{
   color: var(--text-default-color);
 }
