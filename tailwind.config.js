@@ -34,6 +34,8 @@ module.exports = {
         'button': 'var(--button-background-color)',
         'header': 'var(--header-background-color)',
         'page': 'var(--page-background-color)',
+        'error': 'var(--text-error-color)',
+
 
 
 
