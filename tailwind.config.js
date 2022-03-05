@@ -9,6 +9,18 @@ module.exports = {
       boxShadow: {
         // '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
       },
+      fontFamily: {
+
+        'sans': ['Be Vietnam Pro'],
+ 
+        // 'serif': ['ui-serif', 'Georgia', ...],
+ 
+        // 'mono': ['ui-monospace', 'SFMono-Regular', ...],
+ 
+        // 'display': ['Be Vietnam Pro'],
+ 
+        // 'body': ['"Be Vietnam Pro"'],
+       },
       colors: {
         // transparent: 'transparent',
         // current: 'currentColor',
