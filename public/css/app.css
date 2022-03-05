@@ -32690,7 +32690,7 @@ video {
   --text-muted-light-color: rgba(255, 255, 255, 0.3);
   --text-accent-color: #47cdff;
   --text-accent-light-color: #8ae2fe;
-  --text-error-color:red;
+  --text-error-color: red;
 }
 
 .button {
@@ -32755,6 +32755,15 @@ body, button{
 section {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.vm--modal {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  /* background-color: white; */
+  border-radius: 3px;
+  box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
 }
 
 @media (min-width: 640px){

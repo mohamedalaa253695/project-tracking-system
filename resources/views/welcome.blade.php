@@ -1,100 +1,302 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+    <title>Laravel</title>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <style>
+        html,
+        body {
+            background-color: #F6F5F5;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-weight: 300;
+            height: 100vh;
+            margin: 0;
+        }
 
-            .full-height {
-                height: 100vh;
-            }
+        a {
+            text-decoration: none;
+        }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+        li {
+            list-style-type: none;
+        }
 
-            .position-ref {
-                position: relative;
-            }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
 
-            .content {
-                text-align: center;
-            }
+        .flex {
+            display: flex;
+        }
 
-            .title {
-                font-size: 84px;
-            }
+        .flex-inbetween {
+            justify-content: space-between;
+        }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+        .flex-items-center {
+            align-items: center;
+        }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+        .container {
+            padding: 24px 32px;
+        }
+
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .font-24 {
+            font-size: 24px;
+        }
+
+        .font-16 {
+            font-size: 16px;
+        }
+
+        .login-btn {
+            padding: 8px 32px;
+            margin: 10px;
+            border: 1px solid #E1DDDD80;
+            border-radius: 6px;
+            cursor: pointer;
+
+        }
+
+        .register-btn {
+            padding: 8px 32px;
+            background-color: #5EBBFF;
+            border-radius: 6px;
+            border: 1px solid #5EBBFF;
+            cursor: pointer;
+
+        }
+
+        .logo {
+            /* height: 100px;
+            width: 200px; */
+        }
+
+        section {
+            /* width: 80vw; */
+            height: 100%;
+            max-height: 78vh;
+
+            /* padding: 50% 50%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+
+        }
+
+        .wrapper {
+            width: 800px;
+            height: 500px;
+            text-align: center;
+        }
+
+        .main-wrapper {
+
+            padding: 0% 0%;
+            width: 100%;
+            height: 100%;
+            flex-flow: column nowrap;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-h {
+            font-weight: 900;
+            font-size: 65px;
+            text-align: center;
+
+
+        }
+
+        .main-h>p {
+            margin: 0 0;
+        }
+
+
+        .second-h {
+            font-weight: 400;
+            font-size: 35px;
+            text-align: center;
+            color: #141414;
+            opacity: 40%;
+
+
+        }
+
+        .register-btn-hero {
+            padding: 16px 48px;
+            background-color: #5EBBFF;
+            border-radius: 6px;
+            border: 1px solid #5EBBFF;
+            cursor: pointer;
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+
+        }
+
+        .register-btn-hero:hover {
+            background-color: #42acf7;
+        }
+
+        .register-btn-hero>svg {
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+        .footer {
+            background-color: #CCC5C5;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        {{-- @if (Route::has('login'))
+            <div class="top-right links">
+                @auth
+                    <a href="{{ url('/home') }}">Home</a>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}">Register</a>
+                    @endif
+                @endauth
+            </div>
+        @endif --}}
+
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="flex flex-inbetween flex-items-center flex-wrap">
+                <div class="logo">
+                    <svg width="196" height="71" viewBox="0 0 393 143" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M150.712 54.4664L151.162 65.7614H150.307C148.987 61.7714 147.817 59.0564 146.797 57.6164C145.777 56.1464 144.307 55.4114 142.387 55.4114H141.847V85.0214H145.672V85.9664H129.247V85.0214H133.072V55.4114H132.487C130.567 55.4114 129.082 56.1764 128.032 57.7064C126.982 59.2064 125.827 61.8914 124.567 65.7614H123.712L124.162 54.4664H150.712ZM169.211 65.8064C168.101 65.8064 167.126 66.5264 166.286 67.9664C165.446 69.4064 165.026 71.1164 165.026 73.0964V85.1564H168.221V85.9664H154.181V85.1564H156.656V65.3564H154.181V64.5464H165.026V68.8664C165.416 67.3364 166.166 66.1664 167.276 65.3564C168.386 64.5164 169.646 64.0964 171.056 64.0964C172.466 64.0964 173.606 64.5014 174.476 65.3114C175.376 66.0914 175.826 67.2164 175.826 68.6864C175.826 70.1264 175.496 71.2364 174.836 72.0164C174.176 72.7964 173.156 73.1864 171.776 73.1864C170.426 73.1864 169.421 72.7364 168.761 71.8364C168.131 70.9364 168.056 69.6914 168.536 68.1014H170.156C170.906 66.5714 170.591 65.8064 169.211 65.8064ZM188.402 75.3914H189.707V71.9264C189.707 69.0764 189.542 67.1714 189.212 66.2114C188.912 65.2214 188.312 64.7264 187.412 64.7264C186.872 64.7264 186.377 64.8764 185.927 65.1764C185.507 65.4464 185.297 65.8364 185.297 66.3464C185.297 66.8264 185.387 67.3214 185.567 67.8314H186.692C186.932 68.4614 187.052 69.2264 187.052 70.1264C187.052 70.9964 186.677 71.7614 185.927 72.4214C185.177 73.0514 184.232 73.3664 183.092 73.3664C180.512 73.3664 179.222 72.1214 179.222 69.6314C179.222 65.9414 182.357 64.0964 188.627 64.0964C192.197 64.0964 194.657 64.7114 196.007 65.9414C197.387 67.1414 198.077 69.3614 198.077 72.6014V81.7364C198.077 83.2964 198.512 84.0764 199.382 84.0764C200.402 84.0764 201.002 82.5314 201.182 79.4414L201.857 79.4864C201.737 82.1264 201.242 83.9414 200.372 84.9314C199.502 85.9214 198.077 86.4164 196.097 86.4164C192.497 86.4164 190.427 85.3064 189.887 83.0864C189.497 84.2264 188.912 85.0664 188.132 85.6064C187.352 86.1464 186.212 86.4164 184.712 86.4164C180.272 86.4164 178.052 84.6014 178.052 80.9714C178.052 78.8414 178.892 77.3864 180.572 76.6064C182.282 75.7964 184.892 75.3914 188.402 75.3914ZM186.602 80.9264C186.602 82.4864 186.677 83.4914 186.827 83.9414C187.007 84.3914 187.322 84.6164 187.772 84.6164C188.252 84.6164 188.687 84.2414 189.077 83.4914C189.497 82.7114 189.707 81.6464 189.707 80.2964V76.1114H189.392C187.532 76.1114 186.602 77.4764 186.602 80.2064V80.9264ZM216.699 64.9064C215.379 64.9064 214.434 65.6264 213.864 67.0664C213.294 68.5064 213.009 70.8914 213.009 74.2214V76.5614C213.009 79.5314 213.339 81.6614 213.999 82.9514C214.659 84.2414 215.874 84.8864 217.644 84.8864C219.414 84.8864 220.824 84.2864 221.874 83.0864C222.924 81.8864 223.599 80.5214 223.899 78.9914L224.709 79.0814C224.139 81.6614 223.089 83.5214 221.559 84.6614C219.999 85.8314 217.854 86.4164 215.124 86.4164C211.644 86.4164 208.974 85.4864 207.114 83.6264C205.254 81.7364 204.324 78.9914 204.324 75.3914C204.324 71.7614 205.374 68.9714 207.474 67.0214C209.604 65.0714 212.559 64.0964 216.339 64.0964C219.009 64.0964 221.049 64.6214 222.459 65.6714C223.869 66.6914 224.574 67.9814 224.574 69.5414C224.574 71.1014 224.229 72.2414 223.539 72.9614C222.879 73.6814 221.949 74.0414 220.749 74.0414C219.579 74.0414 218.634 73.7264 217.914 73.0964C217.194 72.4664 216.834 71.5364 216.834 70.3064C216.834 69.7664 216.909 69.2264 217.059 68.6864H218.544C218.754 68.0864 218.859 67.5464 218.859 67.0664C218.859 65.6264 218.139 64.9064 216.699 64.9064ZM241.928 85.9664V85.1564H243.998L238.913 74.7164L238.058 74.9414V85.1564H240.128V85.9664H227.213V85.1564H229.688V53.0264H227.033V52.2164H238.058V74.0414L238.778 73.7714L248.903 65.3564H244.673V64.5464H253.538V65.3564H250.388L245.033 69.9014L252.818 85.1564H254.438V85.9664H241.928ZM266.839 75.3914H268.144V71.9264C268.144 69.0764 267.979 67.1714 267.649 66.2114C267.349 65.2214 266.749 64.7264 265.849 64.7264C265.309 64.7264 264.814 64.8764 264.364 65.1764C263.944 65.4464 263.734 65.8364 263.734 66.3464C263.734 66.8264 263.824 67.3214 264.004 67.8314H265.129C265.369 68.4614 265.489 69.2264 265.489 70.1264C265.489 70.9964 265.114 71.7614 264.364 72.4214C263.614 73.0514 262.669 73.3664 261.529 73.3664C258.949 73.3664 257.659 72.1214 257.659 69.6314C257.659 65.9414 260.794 64.0964 267.064 64.0964C270.634 64.0964 273.094 64.7114 274.444 65.9414C275.824 67.1414 276.514 69.3614 276.514 72.6014V81.7364C276.514 83.2964 276.949 84.0764 277.819 84.0764C278.839 84.0764 279.439 82.5314 279.619 79.4414L280.294 79.4864C280.174 82.1264 279.679 83.9414 278.809 84.9314C277.939 85.9214 276.514 86.4164 274.534 86.4164C270.934 86.4164 268.864 85.3064 268.324 83.0864C267.934 84.2264 267.349 85.0664 266.569 85.6064C265.789 86.1464 264.649 86.4164 263.149 86.4164C258.709 86.4164 256.489 84.6014 256.489 80.9714C256.489 78.8414 257.329 77.3864 259.009 76.6064C260.719 75.7964 263.329 75.3914 266.839 75.3914ZM265.039 80.9264C265.039 82.4864 265.114 83.4914 265.264 83.9414C265.444 84.3914 265.759 84.6164 266.209 84.6164C266.689 84.6164 267.124 84.2414 267.514 83.4914C267.934 82.7114 268.144 81.6464 268.144 80.2964V76.1114H267.829C265.969 76.1114 265.039 77.4764 265.039 80.2064V80.9264ZM298.961 73.8614C298.961 70.7714 298.811 68.7014 298.511 67.6514C298.211 66.5714 297.626 66.0314 296.756 66.0314C295.886 66.0314 295.106 66.5714 294.416 67.6514C293.726 68.7314 293.381 70.2164 293.381 72.1064V80.4764C293.381 81.7664 293.636 82.8614 294.146 83.7614C294.686 84.6614 295.436 85.1114 296.396 85.1114C297.386 85.1114 298.061 84.4514 298.421 83.1314C298.781 81.8114 298.961 79.5014 298.961 76.2014V73.8614ZM293.381 52.2164V67.9664C294.521 65.3864 296.471 64.0964 299.231 64.0964C304.841 64.0964 307.646 67.8314 307.646 75.3014C307.646 79.1114 306.866 81.9164 305.306 83.7164C303.776 85.5164 301.466 86.4164 298.376 86.4164C296.816 86.4164 295.616 86.1764 294.776 85.6964C293.966 85.2164 293.411 84.4214 293.111 83.3114L292.796 85.9664H282.536V85.1564H285.011V53.0264H282.536V52.2164H293.381ZM310.611 52.2164H321.636V85.1564H324.156V85.9664H310.791V85.1564H313.266V53.0264H310.611V52.2164ZM338.665 86.4164C334.795 86.4164 331.885 85.4264 329.935 83.4464C328.015 81.4364 327.055 78.6614 327.055 75.1214C327.055 71.5514 328.135 68.8214 330.295 66.9314C332.485 65.0414 335.26 64.0964 338.62 64.0964C345.43 64.0964 348.7 67.5164 348.43 74.3564H335.74V76.1114C335.74 79.0514 336.115 81.2714 336.865 82.7714C337.615 84.2714 338.92 85.0214 340.78 85.0214C344.26 85.0214 346.54 83.1614 347.62 79.4414L348.43 79.5764C347.86 81.7364 346.825 83.4164 345.325 84.6164C343.855 85.8164 341.635 86.4164 338.665 86.4164ZM335.785 73.4564H340.42V71.2514C340.42 68.8214 340.27 67.1714 339.97 66.3014C339.7 65.4014 339.13 64.9514 338.26 64.9514C337.42 64.9514 336.79 65.4314 336.37 66.3914C335.98 67.3214 335.785 68.9414 335.785 71.2514V73.4564Z"
+                            fill="#10141A" />
+                        <mask id="mask0_3_5" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="60" y="49" width="58"
+                            height="37">
+                            <path d="M89.2498 85.9664L117.692 49.3454H60.8076L89.2498 85.9664Z" fill="#121010" />
+                        </mask>
+                        <g mask="url(#mask0_3_5)">
+                            <rect x="63.9841" y="53.537" width="49.3947" height="4.76544" fill="#5EBBFF" />
+                            <rect x="75.7457" y="70.1752" width="25.6678" height="4.76544" fill="#5EBBFF" />
+                            <rect x="69.9363" y="61.5525" width="37.4471" height="4.76543" fill="#5EBBFF" />
+                            <path d="M88.5757 86.5775L96.9213 77.4821H80.2302L88.5757 86.5775Z" fill="#5EBBFF" />
+                        </g>
+                    </svg>
                 </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div>
+                    <a href="{{ url('login') }}">
+                        <button class="login-btn font-medium font-16">Login</button>
+
+                    </a>
+                    <a href="{{ url('register') }}">
+                        <button class="register-btn font-medium font-16">Register</button>
+                    </a>
+
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="wrapper">
+            <div class="main-wrapper">
+
+                <div class="main-h">
+                    <p>The project tracking tool you will enjoy using</p>
+                </div>
+                <div class="second-h">
+                    <p>Trackable helps stream line software projects, sprints, tasks and activities.
+                        It's build for higher performance teams.</p>
+                </div>
+                <a href="{{ url('register') }}">
+                    <button class="register-btn-hero  font-medium font-24">
+                        <span>Register</span>
+
+                        <svg width="30" height="24" viewBox="0 0 35 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M17.5838 4.83334L15.5863 6.53709L23.4913 13.2917H6.25043V15.7083H23.4913L15.5863 22.4629L17.5838 24.1667L28.9171 14.5L17.5838 4.83334Z"
+                                fill="black" />
+                        </svg>
+
+
+                    </button>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer flex flex-inbetween flex-items-center flex-wrap">
+                <p>made with love by mohamed alaa</p>
+                <div class="other-project flex ">
+                    <a href="#">
+                        <button class="login-btn font-medium font-16 flex flex-items-center">Property Mangment System
+
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.2631 19.3386H5.26306V5.33862H12.2631V3.33862H5.26306C4.15306 3.33862 3.26306 4.23862 3.26306 5.33862V19.3386C3.26306 20.4386 4.15306 21.3386 5.26306 21.3386H19.2631C20.3631 21.3386 21.2631 20.4386 21.2631 19.3386V12.3386H19.2631V19.3386ZM14.2631 3.33862V5.33862H17.8531L8.02306 15.1686L9.43306 16.5786L19.2631 6.74862V10.3386H21.2631V3.33862H14.2631Z"
+                                    fill="black" />
+                            </svg>
+                        </button>
+
+                    </a>
+                    <a href="#">
+                        <button class="login-btn font-medium font-16 flex flex-items-center">Influencer App
+
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.2631 19.3386H5.26306V5.33862H12.2631V3.33862H5.26306C4.15306 3.33862 3.26306 4.23862 3.26306 5.33862V19.3386C3.26306 20.4386 4.15306 21.3386 5.26306 21.3386H19.2631C20.3631 21.3386 21.2631 20.4386 21.2631 19.3386V12.3386H19.2631V19.3386ZM14.2631 3.33862V5.33862H17.8531L8.02306 15.1686L9.43306 16.5786L19.2631 6.74862V10.3386H21.2631V3.33862H14.2631Z"
+                                    fill="black" />
+                            </svg>
+                        </button>
+
+                    </a>
                 </div>
             </div>
         </div>
-    </body>
+    </footer>
+
+    <script>
+        if (window.location.pathname == "/") {
+            // console.log(window.location);
+            localStorage.clear();
+            console.log(localStorage.getItem('logo'));
+        }
+    </script>
+
+</body>
+
 </html>

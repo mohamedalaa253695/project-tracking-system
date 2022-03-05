@@ -2,27 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
-
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
 // @import 'variables';
 
-@import 'themes/light';
-@import 'themes/dark';
+@import "themes/light";
+@import "themes/dark";
 
-
-
-
-@import 'components/button';
-@import 'components/card';
-@import 'components/dropdown';
-
-
+@import "components/button";
+@import "components/card";
+@import "components/dropdown";
 
 body,
 button {
@@ -43,22 +34,15 @@ section {
     @apply px-8;
 }
 
+.vm--modal {
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    /* background-color: white; */
+    border-radius: 3px;
+    box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
+}
 
 // Bootstrap
 // @import '~bootstrap/scss/bootstrap';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

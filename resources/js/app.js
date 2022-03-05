@@ -8,10 +8,12 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Vue from 'vue';
 import VModal from 'vue-js-modal';
+import VueRouter from 'vue-router';
 
 Vue.use(VModal);
-
+Vue.use(VueRouter)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -24,6 +26,7 @@ Vue.use(VModal);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('logo', require('./components/Logo.vue').default );
 Vue.component('theme-switcher', require('./components/ThemeSwitcher.vue').default);
 
 Vue.component('new-project-modal', require('./components/NewProjectModal.vue').default);
@@ -35,6 +38,13 @@ Vue.component('dropdown', require('./components/Dropdown.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// const router = new VueRouter({
+
+// });
+window.Event = new Vue();
+
 const app = new Vue({
     el: '#app',
+ 
+    
 });
