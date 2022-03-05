@@ -19,7 +19,7 @@
                         <input
                             type="text"
                             id="title"
-                            class="border p-2 text-xs block w-full rounded"
+                            class="border bg-transparent border border-muted-light p-2 text-xs block w-full rounded"
                             :class="
                                 form.errors.title
                                     ? 'border-error'
@@ -42,7 +42,7 @@
 
                         <textarea
                             id="description"
-                            class="border border-muted-light p-2 text-xs block w-full rounded"
+                            class="border bg-transparent border border-muted-light p-2 text-xs block w-full rounded"
                             rows="7"
                             v-model="form.description"
                         ></textarea>
@@ -62,7 +62,7 @@
                         >
                         <input
                             type="text"
-                            class="border border-muted-light mb-2 p-2 text-xs block w-full rounded"
+                            class="border bg-transparent border border-muted-light mb-2 p-2 text-xs block w-full rounded"
                             placeholder="Task 1"
                             v-for="task in form.tasks"
                             :key="task.id"

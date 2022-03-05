@@ -14,6 +14,22 @@ services:
     networks:
       - project-tracking
 
+  mysql:
+    image: mysql:5.7.22
+    container_name: project-managment-db
+    restart: unless-stopped
+    tty: true
+    environment:
+      MYSQL_DATABASE: project_tracking_db
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./storage/dbdata:/var/lib/mysql
+    ports:
+      - 33085:3306
+    networks:
+      - project-tracking
+
   php:
     build:
       context: .
@@ -31,22 +47,6 @@ services:
       - project-tracking
     volumes:
       - .:/usr/share/nginx/html
-
-  mysql:
-    image: mysql:5.7.22
-    container_name: project-managment-db
-    restart: unless-stopped
-    tty: true
-    environment:
-      MYSQL_DATABASE: project_tracking_db
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./storage/dbdata:/var/lib/mysql
-    ports:
-      - 33085:3306
-    networks:
-      - project-tracking
 
 networks:
   project-tracking:

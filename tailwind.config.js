@@ -11,7 +11,7 @@ module.exports = {
       },
       fontFamily: {
 
-        'sans': ['Be Vietnam Pro'],
+        'sans': ['Be Vietnam Pro','sans-serif'],
  
         // 'serif': ['ui-serif', 'Georgia', ...],
  

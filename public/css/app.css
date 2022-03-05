@@ -356,7 +356,7 @@ ul {
  */
 
 html {
-  font-family: Be Vietnam Pro; /* 1 */
+  font-family: Be Vietnam Pro, sans-serif; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -22601,7 +22601,7 @@ video {
 }
 
 .font-sans{
-  font-family: Be Vietnam Pro;
+  font-family: Be Vietnam Pro, sans-serif;
 }
 
 .font-serif{
@@ -32719,6 +32719,31 @@ video {
 
 .theme-dark .button {
   box-shadow: 0 2px 7px 0 #00658b;
+}
+
+.login-btn {
+  padding: 8px 32px;
+  margin: 10px;
+  border: 1px solid #e1dddd80;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #e9e9e9;
+}
+
+.login-btn:hover {
+  background-color: #cecece80;
+}
+
+.register-btn {
+  padding: 8px 32px;
+  background-color: #5ebbff;
+  border-radius: 6px;
+  border: 1px solid #5ebbff;
+  cursor: pointer;
+}
+
+.register-btn:hover {
+  background-color: #42acf7;
 }
 
 .card {
@@ -54727,7 +54752,7 @@ section {
   }
 
   .sm\:font-sans{
-    font-family: Be Vietnam Pro;
+    font-family: Be Vietnam Pro, sans-serif;
   }
 
   .sm\:font-serif{
@@ -86385,7 +86410,7 @@ section {
   }
 
   .md\:font-sans{
-    font-family: Be Vietnam Pro;
+    font-family: Be Vietnam Pro, sans-serif;
   }
 
   .md\:font-serif{
@@ -118043,7 +118068,7 @@ section {
   }
 
   .lg\:font-sans{
-    font-family: Be Vietnam Pro;
+    font-family: Be Vietnam Pro, sans-serif;
   }
 
   .lg\:font-serif{
@@ -149701,7 +149726,7 @@ section {
   }
 
   .xl\:font-sans{
-    font-family: Be Vietnam Pro;
+    font-family: Be Vietnam Pro, sans-serif;
   }
 
   .xl\:font-serif{
@@ -181359,7 +181384,7 @@ section {
   }
 
   .\32xl\:font-sans{
-    font-family: Be Vietnam Pro;
+    font-family: Be Vietnam Pro, sans-serif;
   }
 
   .\32xl\:font-serif{

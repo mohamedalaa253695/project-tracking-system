@@ -34,12 +34,17 @@
                         <div class="flex items-center ml-auto ">
                             <!-- Authentication Links -->
                             @guest
+                                <div>
+                                    <a href="{{ route('login') }}">
+                                        <button class="login-btn font-medium text-base">Login</button>
+                                    </a>
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}">
+                                            <button class="register-btn font-medium text-base">Register</button>
+                                        </a>
+                                    @endif
 
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-
-                                @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                @endif
+                                </div>
                             @else
                                 <theme-switcher></theme-switcher>
                                 <dropdown align="right" width="200px">

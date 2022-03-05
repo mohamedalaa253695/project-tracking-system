@@ -3644,7 +3644,8 @@ var render = function () {
                       expression: "form.title",
                     },
                   ],
-                  staticClass: "border p-2 text-xs block w-full rounded",
+                  staticClass:
+                    "border bg-transparent border border-muted-light p-2 text-xs block w-full rounded",
                   class: _vm.form.errors.title
                     ? "border-error"
                     : "border-muted-light",
@@ -3690,7 +3691,7 @@ var render = function () {
                     },
                   ],
                   staticClass:
-                    "border border-muted-light p-2 text-xs block w-full rounded",
+                    "border bg-transparent border border-muted-light p-2 text-xs block w-full rounded",
                   attrs: { id: "description", rows: "7" },
                   domProps: { value: _vm.form.description },
                   on: {
@@ -3735,7 +3736,7 @@ var render = function () {
                       ],
                       key: task.id,
                       staticClass:
-                        "border border-muted-light mb-2 p-2 text-xs block w-full rounded",
+                        "border bg-transparent border border-muted-light mb-2 p-2 text-xs block w-full rounded",
                       attrs: { type: "text", placeholder: "Task 1" },
                       domProps: { value: task.body },
                       on: {

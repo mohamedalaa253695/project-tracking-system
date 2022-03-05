@@ -73,7 +73,12 @@
             border: 1px solid #E1DDDD80;
             border-radius: 6px;
             cursor: pointer;
+            background-color: #e9e9e9;
 
+        }
+
+        .login-btn:hover {
+            background-color: #cecece80;
         }
 
         .register-btn {
@@ -83,6 +88,10 @@
             border: 1px solid #5EBBFF;
             cursor: pointer;
 
+        }
+
+        .register-btn:hover {
+            background-color: #42acf7;
         }
 
         .logo {
